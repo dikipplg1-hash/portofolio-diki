@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Musicha Dicky | Beranda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/latihan.js" defer></script>
+  <script src="js/logika.js" defer></script>
 </head>
+
 <body>
   <header>
     <div class="container navbar">
       <h1>Musicha dicky</h1>
+      <p id="jumlah-skill">ada 5 keahlian yang sedang saya kembangankan.</p>
       <nav class="menu-laptop">
         <ul>
           <li><a href="index.html">Beranda</a></li>
           <li><a href="proyek.html">Proyek</a></li>
           <li><a href="kontak.html">Kontak</a></li>
+           <li><a href="kalkulator.html">Kalkulator</a></li>
+          <button type="button" id="tombol-tema" class="tombol-tema">Mode Gelap</button>
         </ul>
       </nav>
       <!-- Tantangan: menu ponsel yang bisa dibuka-tutup -->
@@ -28,6 +37,7 @@
             <li><a href="index.html">Beranda</a></li>
             <li><a href="proyek.html">Proyek</a></li>
             <li><a href="kontak.html">Kontak</a></li>
+          <li><a href="kalkulator.html">Kalkulator</a></li>
           </ul>
         </nav>
       </details>
@@ -42,12 +52,14 @@
           <h2>Halo musicha dicky ibdra abdullah</h2>
           <p>Siswa kelas X SMKS BRANTAS KARANGKATES, calon Junior Web Developer di Kelas Industri UBIG.</p>
           <a href="proyek.html" class="tombol">Lihat Proyek Saya</a>
+          <p id:nama>paragraf ini di buat oleh javascript</p>
         </div>
       </section>
 
       <section class="kartu">
         <h2>Tentang Saya</h2>
-        <p>Saya tinggal di Malang jawa timur dan saya suka teknologi.dan ingin membuat web yang berguna untuk semua orang.</p>
+        <p>Saya tinggal di Malang jawa timur dan saya suka teknologi.dan ingin membuat web yang berguna untuk semua
+          orang.</p>
       </section>
 
       <div class="daftar-kartu">
@@ -72,11 +84,8 @@
 
         <section class="kartu">
           <h2>Keahlian</h2>
-          <ul>
-            <li>HTML dasar (sedang dipelajari)</li>
-            <li>bermain game(mobile legend)</li>
-            <li>Desain poster dengan Canva dan figma </li>
-            <li>karate</li>
+          <ul id="daftar-skill"></ul>
+          <p id="jumlah-skill"></p>
           </ul>
         </section>
       </div>
@@ -117,8 +126,10 @@
   <footer>
     <p>Kontak: <a href="mailto:dikippg1@gmail.com">dikippg1@gmail.com</a> |
       <a href="https://github.com/dikipplg1-hash" target="_blank">GitHub</a> |
-      <a href="https://youtube.com/@musichadiki?si=JjgnTmb7OUU8nnk3" target="_blank">YouTube</a></p>
+      <a href="https://youtube.com/@musichadiki?si=JjgnTmb7OUU8nnk3" target="_blank">YouTube</a>
+    </p>
     <p>&copy; 2026 musicha dicky . Dibuat di Kelas Industri UBIG.</p>
   </footer>
 </body>
+
 </html>
