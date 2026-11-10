@@ -38,3 +38,15 @@ tombol.addEventListener("click", () => {
   const rata = hitungRataRata(tugas, uts, uas);
   hasil.textContent = `Rata-rata ${rata.toFixed(1)}, predikat ${predikat(rata)}`;
 });
+
+// 2. Tema gelap (semua halaman)
+const tombolTema = document.querySelector("#tombol-tema");
+if (tombolTema)
+    tombolTema.addEventListener("click", () => {
+        document.body.classList.toggle("gelap");
+        if (document.body.classList.contains("gelap")) {
+            tombolTema.textContent = "Mode Terang";
+        } else {
+            tombolTema.textContent = "Mode Gelap";
+        }
+    });
