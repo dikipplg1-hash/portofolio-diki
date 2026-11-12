@@ -18,5 +18,13 @@
 {
 "nama": "JavaScript",
 "level": "Dasar"
+},
+{
+"nama": "bermain bulutangkis",
+"level": "mahir"
+},
+{
+"nama": "bermain game (mobile legend)",
+"level": "mahir"
 }
 ]
