@@ -346,3 +346,9 @@ main {
   font-size: 0.875rem;
 }
 
+.tombol-filter.aktif {
+  background-color: #E63946;
+  color:#FFFFFF;
+  border-color:#E63946;
+}
+

@@ -10,14 +10,26 @@ const skills = [
 skills.push({ nama: "JavaScript", level: "Dasar" });
 const daftarSkill = document.querySelector("#daftar-skill");
 const jumlahSkill = document.querySelector("#jumlah-skill");
+async function muatKeahlian() {
+    try {
+        const response = await fetch("data/keahlian.json");
+        if (!response.ok) {
+            throw new Error(`Status ${response.status}`);
+        }
+        const skills = await response.json();
+        skills.forEach((skill) => {
+            const item = document.createElement("li");
+            item.textContent = `${skill.nama} (${skill.level})`;
+            daftarSkill.appendChild(item);
+        });
+        jumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang saya kembangkan.`;
+    } catch (error) {
+        jumlahSkill.textContent = "Daftar keahlian gagal dimuat.";
+        console.error(error);
+    }
+}
 if (daftarSkill) {
-    skills.forEach((skill) => {
-        const item = document.createElement("li");
-        item.textContent = `${skill.nama} (${skill.level})`;
-        daftarSkill.appendChild(item);
-    });
-    jumlahSkill.textContent = `Ada ${skills.length} keahlian yang
-sedang saya kembangkan.`;
+    muatKeahlian();
 }
 
 // 2. Tema gelap (semua halaman)
@@ -104,7 +116,7 @@ function buatKartu(item) {
 function tampilkanProyek(daftar) {
     const semuaKartu = daftar.map((item) => buatKartu(item));
     daftarProyek.innerHTML = semuaKartu.join("");
-    jumlahProyek.textContent =`Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
+    jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
 }
 function pasangFilter(idTombol, kategori) {
     const tombol = document.querySelector(idTombol);
@@ -119,5 +131,69 @@ function pasangFilter(idTombol, kategori) {
 if (daftarProyek) {
     tampilkanProyek(proyek);
     pasangFilter("#filter-semua", "Semua");
+    pasangFilter("#filter-html","HTML");
+    pasangFilter("#filter-css","CSS");
     pasangFilter("#filter-javascript", "JavaScript");
+}
+
+// 5. Repositori GitHub terbaru (halaman Proyek)
+const username = "dikipplg1-hash";
+const alamatRepo = `https://api.github.com/users/${username}/repos`;
+const pilihan = "?sort=updated&per_page=6";
+const daftarRepo = document.querySelector("#daftar-repo");
+const statusRepo = document.querySelector("#status-repo");
+async function ambilRepo() {
+    const response = await fetch(alamatRepo + pilihan);
+    const repos = await response.json();
+    console.log(repos);
+}
+if (daftarRepo) {
+    ambilRepo();
+}
+
+async function ambilRepo() {
+    const response = await fetch(alamatRepo + pilihan);
+    const repos = await response.json();
+    repos.forEach((repo) => {
+        const item = document.createElement("li");
+        const tautan = document.createElement("a");
+        tautan.href = repo.html_url;
+        tautan.target = "_blank";
+        tautan.textContent = repo.name;
+        item.appendChild(tautan);
+        daftarRepo.appendChild(item);
+    });
+    statusRepo.textContent = `${repos.length} repositori yang terakhir
+diperbarui:`;
+}
+
+async function ambilRepo() {
+    statusRepo.textContent = "Memuat...";
+    const response = await fetch(alamatRepo + pilihan);
+    const repos = await response.json();
+}
+
+async function ambilRepo() {
+    statusRepo.textContent = "Memuat...";
+    try {
+        const response = await fetch(alamatRepo + pilihan);
+        if (!response.ok) {
+            throw new Error(`Status ${response.status}`);
+        }
+        const repos = await response.json();
+        repos.forEach((repo) => {
+            const item = document.createElement("li");
+            const tautan = document.createElement("a");
+            tautan.href = repo.html_url;
+            tautan.target = "_blank";
+            tautan.textContent = repo.name;
+            item.appendChild(tautan);
+            daftarRepo.appendChild(item);
+        });
+        statusRepo.textContent = `${repos.length} repositori yang
+terakhir diperbarui:`;
+    } catch (error) {
+        statusRepo.textContent = "Maaf, daftar repositori gagal dimuat.Periksa username atau coba lagi nanti.";
+        console.error(error);
+    }
 }

@@ -68,3 +68,4 @@ console.log("Soal 5: harga setelah diskon");
 console.log(`hargaSetelahDiskon(250000) = ${hargaSetelahDiskon(250000)}`); // 200000
 console.log(`hargaSetelahDiskon(100000) = ${hargaSetelahDiskon(100000)}`); // 90000
 console.log(`hargaSetelahDiskon(75000) = ${hargaSetelahDiskon(75000)}`); // 75000
+
