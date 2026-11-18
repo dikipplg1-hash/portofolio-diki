@@ -197,3 +197,23 @@ terakhir diperbarui:`;
         console.error(error);
     }
 }
+
+{
+ const daftar repositori=document.querySelector("#status-repo");
+ if () {
+    .addEventListener("click", () => {
+          document.body.classList.toggle("");
+
+
+           if (document.body.classList.contains("sembunyikan")) {
+            tombolrepo.textContent = "munculkan";
+        } else {
+            tombolTema.textContent = "sembunyikan";
+        }
+    });
+}
+
+
+
+ }
+
